@@ -27,6 +27,7 @@ class ::MicrosoftAuthenticator < ::Auth::ManagedAuthenticator
                           strategy.options[
                             :client_secret
                           ] = SiteSetting.microsoft_auth_client_secret
+                          strategy.options[:tenant_id] = SiteSetting.microsoft_auth_tenant_id
                         }
   end
 
