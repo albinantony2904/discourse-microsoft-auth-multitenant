@@ -4,6 +4,7 @@ class RenameOffice365ToMicrosoft < ActiveRecord::Migration[6.1]
     %w[office365_enabled microsoft_auth_enabled],
     %w[office365_client_id microsoft_auth_client_id],
     %w[office365_secret microsoft_auth_client_secret],
+    %w[office365_secret microsoft_auth_tenant_id],
   ]
 
   def up
