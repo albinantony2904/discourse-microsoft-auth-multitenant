@@ -4,6 +4,7 @@ describe "Microsoft OAuth2" do
   let(:access_token) { "microsoft_access_token_448" }
   let(:client_id) { "abcdef11223344" }
   let(:client_secret) { "adddcccdddd99922" }
+  let(:tenant_id) { "adddcccdddd11111" }
   let(:temp_code) { "microsoft_temp_code_544254" }
 
   fab!(:user1) { Fabricate(:user) }
@@ -39,8 +40,9 @@ describe "Microsoft OAuth2" do
     SiteSetting.microsoft_auth_enabled = true
     SiteSetting.microsoft_auth_client_id = client_id
     SiteSetting.microsoft_auth_client_secret = client_secret
+    SiteSetting.microsoft_auth_tenant_id = tenant_id
 
-    stub_request(:post, "https://login.microsoftonline.com/common/oauth2/v2.0/token").with(
+    stub_request(:post, "https://login.microsoftonline.com/#{tenant_id}/oauth2/v2.0/token").with(
       body:
         hash_including(
           "client_id" => client_id,
@@ -69,7 +71,7 @@ describe "Microsoft OAuth2" do
     post "/auth/microsoft_office365"
     expect(response.status).to eq(302)
     expect(response.location).to start_with(
-      "https://login.microsoftonline.com/common/oauth2/v2.0/authorize",
+      "https://login.microsoftonline.com/#{tenant_id}/oauth2/v2.0/authorize",
     )
 
     setup_ms_emails_stub(email: user1.email)
