@@ -4,8 +4,8 @@
 # about: Enable Login via Microsoft Identity Platform (Office 365 / Microsoft 365 Accounts)
 # meta_topic_id: 51731
 # version: 1.0
-# authors: Matthew Wilkin
-# url: https://github.com/discourse/discourse-microsoft-auth
+# authors: Albin Antony
+# url: https://github.com/albinantony2904/discourse-microsoft-auth-multitenant
 
 require_relative "lib/omniauth-microsoft365"
 
