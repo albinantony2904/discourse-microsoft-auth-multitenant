@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-# name: discourse-microsoft-auth
+# name: discourse-microsoft-auth-multitenant
 # about: Enable Login via Microsoft Identity Platform (Office 365 / Microsoft 365 Accounts)
 # meta_topic_id: 51731
 # version: 1.0
